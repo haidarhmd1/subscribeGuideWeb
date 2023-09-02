@@ -19,7 +19,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 1. **Clone the Repository:**
 
 ```sh
-git clone https://github.com/haidarhmd1/subscription-guide.git
+git clone https://github.com/haidarhmd1/subscribtionGuide-web-nextjs.git
 ```
 
 First, run the development server:
