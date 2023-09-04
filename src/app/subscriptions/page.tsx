@@ -1,7 +1,11 @@
+"use client";
+
+import { PrimaryButton } from "components/Button";
+
 export default function Subscriptions() {
   return (
     <div>
-      <button className="">Add new</button>
+      <PrimaryButton onClick={() => alert(1)}>Add Subscriptions</PrimaryButton>
     </div>
   );
 }
