@@ -1,29 +1,18 @@
 "use client";
 
-import { PrimaryButton, SecondaryButton } from "components/Button";
+import { PrimaryButton } from "components/Button";
 import { useState } from "react";
 import { FiXCircle } from "react-icons/fi";
-import Modal from "react-modal";
+import { AiOutlineQuestionCircle } from "react-icons/ai";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    width: 450,
-    height: "auto",
-    overflow: "auto",
-    borderRadius: 12,
-  },
-};
+import { Select, DatePicker, Input, Modal, Checkbox, Tooltip } from "antd";
+import type { CheckboxChangeEvent } from "antd/es/checkbox";
+
+const { RangePicker } = DatePicker;
 
 export default function Subscriptions() {
-  let subtitle;
-
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDateRangeVisible, setIsDateRangeVisible] = useState(true);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -33,25 +22,38 @@ export default function Subscriptions() {
     setIsModalOpen(false);
   };
 
+  const onCheckboxChange = (e: CheckboxChangeEvent) => {
+    setIsDateRangeVisible(!isDateRangeVisible);
+    console.log(isDateRangeVisible);
+  };
+
   return (
     <div>
       <PrimaryButton onClick={openModal}>Add Subscriptions</PrimaryButton>
       <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        shouldCloseOnOverlayClick={false}
-        contentLabel="Add New Subscription"
+        open={isModalOpen}
+        closeIcon={<FiXCircle size={21} />}
+        centered
+        title="Add New Subscription"
+        okButtonProps={{
+          style: {
+            backgroundColor: "rgb(96 165 250)",
+            fontSize: 12,
+            width: 125,
+          },
+        }}
+        cancelButtonProps={{
+          style: {
+            backgroundColor: "rgb(243 244 246)",
+            border: "none",
+            fontSize: 12,
+            width: 125,
+            float: "left",
+          },
+        }}
+        onCancel={closeModal}
+        onOk={closeModal}
       >
-        <div className=" absolute right-4 top-4">
-          <button onClick={closeModal}>
-            <FiXCircle size={21} />
-          </button>
-        </div>
-
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-          Add New Subscription
-        </h2>
         <div className="border border-gray-100 my-4" />
         <div className="form-container">
           <form>
@@ -59,60 +61,49 @@ export default function Subscriptions() {
               <div className="w-full">
                 <p className=" font-light">Title of Subscription:</p>
               </div>
-              <input
-                type="text"
-                className=" w-full bg-gray-50 text-sm rounded-md p-1 px-3"
-                placeholder="Title"
-              />
+              <Input placeholder="Title" />
             </div>
 
             <div className="my-4">
               <div className="w-full">
                 <p className=" font-light">Category:</p>
               </div>
-              <input
-                type="text"
-                className=" w-full bg-gray-50 text-sm rounded-md p-1 px-3"
-                placeholder="Title"
+
+              <Select
+                defaultValue="lucy"
+                className="w-full"
+                mode="tags"
+                options={[
+                  { value: "jack", label: "Entertainment" },
+                  { value: "lucy", label: "Fitness" },
+                  { value: "Yiminghe", label: "Leisure" },
+                ]}
               />
             </div>
 
-            <div className="my-4">
-              <div className="w-full">
-                <p className=" font-light">From:</p>
+            <div className="my-4 border p-4 rounded-md">
+              <div className="flex mb-4">
+                <Checkbox onChange={onCheckboxChange}>
+                  Does not have an end date
+                </Checkbox>
+                <Tooltip title="Some subscriptions are 'endless' e.g. Spotify, netlfix...etc. where you need manually to end the subscription">
+                  <AiOutlineQuestionCircle size={16} />
+                </Tooltip>
               </div>
-              <input
-                type="text"
-                className=" w-full bg-gray-50 text-sm rounded-md p-1 px-3"
-                placeholder="Title"
-              />
+              {isDateRangeVisible && (
+                <>
+                  <div className="w-full">
+                    <p className=" font-light">From - Till:</p>
+                  </div>
+                  <RangePicker className="w-full" picker="month" />
+                </>
+              )}
             </div>
-
-            <div className="my-4">
-              <div className="w-full">
-                <p className=" font-light">Till:</p>
-              </div>
-              <input
-                type="text"
-                className=" w-full bg-gray-50 text-sm rounded-md p-1 px-3"
-                placeholder="Title"
-              />
-            </div>
-
             <div className="my-4">
               <div className="w-full">
                 <p className=" font-light">Monthly Price:</p>
               </div>
-              <input
-                type="text"
-                className=" w-full bg-gray-50 text-sm rounded-md p-1 px-3"
-                placeholder="Title"
-              />
-            </div>
-
-            <div className="flex mt-4 justify-between">
-              <SecondaryButton onClick={() => {}}>Cancel</SecondaryButton>
-              <PrimaryButton onClick={() => {}}>Save</PrimaryButton>
+              <Input prefix="€" suffix="Euro" />
             </div>
           </form>
         </div>
