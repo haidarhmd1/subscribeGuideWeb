@@ -6,7 +6,7 @@ import { PrimaryButton, SecondaryButton } from "components/Button";
 
 import { TbCirclePlus } from "react-icons/tb";
 
-import { SubscriptionMainAnalitycs } from "components/SubscriptionMainAnalitycs";
+import { SubscriptionMainAnalytics } from "components/SubscriptionMainAnalytics";
 import { PaymentHistory } from "components/PaymentHistory";
 import { SubscriptionModal } from "components/SubscriptionModal";
 import { SubscriptionForm } from "components/SubscriptionForm";
@@ -41,7 +41,7 @@ export default function Home() {
         </div>
       </PrimaryButton>
       <SubscriptionModal isModalOpen={isModalOpen} closeModal={closeModal} />
-      <SubscriptionMainAnalitycs
+      <SubscriptionMainAnalytics
         incomingSpendings="$16.00"
         moneySpentTillNow="$31.00"
       />

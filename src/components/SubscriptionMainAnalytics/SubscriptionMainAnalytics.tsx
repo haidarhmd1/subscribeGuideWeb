@@ -1,14 +1,14 @@
 import { Divider } from "antd";
 
-type SubscriptionMainAnalitycsProps = {
+type SubscriptionMainAnalyticssProps = {
   moneySpentTillNow: string;
   incomingSpendings: string;
 };
 
-export const SubscriptionMainAnalitycs = ({
+export const SubscriptionMainAnalytics = ({
   moneySpentTillNow,
   incomingSpendings,
-}: SubscriptionMainAnalitycsProps) => {
+}: SubscriptionMainAnalyticssProps) => {
   return (
     <div className="bg-blue-100 w-full p-4 rounded-xl my-10">
       <h1>Spent for January</h1>
