@@ -4,13 +4,7 @@ import { PrimaryButton, SecondaryButton } from "components/Button";
 import { useState } from "react";
 import { FiXCircle } from "react-icons/fi";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
-import {
-  TbBrandNetflix,
-  TbBrandSpotify,
-  TbBus,
-  TbCirclePlus,
-  TbPlus,
-} from "react-icons/tb";
+import { TbCirclePlus } from "react-icons/tb";
 
 import {
   Select,
@@ -19,12 +13,10 @@ import {
   Modal,
   Checkbox,
   Tooltip,
-  Col,
   Form,
   Space,
   Drawer,
   Row,
-  Divider,
 } from "antd";
 import type { CheckboxChangeEvent } from "antd/es/checkbox";
 import { SubscriptionCard } from "components/SubscriptionCard";
@@ -57,7 +49,6 @@ export default function Subscriptions() {
 
   const onCheckboxChange = (e: CheckboxChangeEvent) => {
     setIsDateRangeVisible(!isDateRangeVisible);
-    console.log(isDateRangeVisible);
   };
 
   return (
