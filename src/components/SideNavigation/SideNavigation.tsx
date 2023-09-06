@@ -1,24 +1,34 @@
 import Link from "next/link";
+
+import { Divider } from "antd";
+
+import { FcTreeStructure } from "react-icons/fc";
 import { FiSettings } from "react-icons/fi";
 import { MdOutlineSubscriptions } from "react-icons/md";
 
 export const SideNavigation = () => {
   return (
-    <section className="side-nav p-2.5 w-2/6 h-screen border-r-[1px] border-gray-200">
-      <div className="side-nav-logo">logo</div>
-      <div className="side-nav-menu flex flex-col pt-4 pb-4">
-        <h6 className="text-xs pb-3 text-neutral-500">Menu</h6>
-        <Link href="/" className="pt-2 pb-2 text-sm font-semibold flex">
-          <MdOutlineSubscriptions size={18} />
-          <span className="pl-2">Subscriptions</span>
-        </Link>
+    <section className="side-nav w-34 h-screen border-r-[1px] border-gray-200 sticky top-0">
+      <div className="side-nav-logo h-12 flex justify-evenly items-center">
+        <FcTreeStructure size={23} />
       </div>
-
-      <div className="side-nav-help flex flex-col pt-4 pb-4">
-        <h6 className="text-xs pb-3 text-neutral-500">Help</h6>
-        <Link href="/settings" className="pt-2 pb-2 text-sm font-semibold flex">
-          <FiSettings size={18} />
-          <span className="pl-2">Settings</span>
+      <Divider className="mt-0" />
+      <div className="side-nav-menu flex flex-col p-4">
+        <h6 className="text-xs pb-3 text-neutral-500">Menu</h6>
+        <Link
+          href="/"
+          className="p-4 rounded-lg text-xs font-light flex flex-col hover:bg-blue-50 transition-all"
+        >
+          <MdOutlineSubscriptions className="self-center" size={24} />
+          <span className="mt-2 text-center">Subscriptions</span>
+        </Link>
+        <Divider />
+        <Link
+          href="/settings"
+          className="p-4 rounded-lg text-xs font-light flex flex-col hover:bg-blue-50 transition-all"
+        >
+          <FiSettings className="self-center" size={24} />
+          <span className="mt-2 text-center">Settings</span>
         </Link>
       </div>
     </section>
