@@ -6,6 +6,8 @@ import { PrimaryButton, SecondaryButton } from "components/Button";
 
 import { TbCirclePlus } from "react-icons/tb";
 
+import { useWindowSize } from "utils/useWindowSize";
+
 import { SubscriptionMainAnalytics } from "components/SubscriptionMainAnalytics";
 import { PaymentHistory } from "components/PaymentHistory";
 import { SubscriptionModal } from "components/SubscriptionModal";
@@ -15,6 +17,9 @@ import { SubscriptionCards } from "components/SubscriptionCards/SubscriptionCard
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const { width: windowWidth } = useWindowSize();
+  const isBrowserMobile = !!windowWidth && windowWidth < 500;
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -48,12 +53,13 @@ export default function Home() {
       <SubscriptionCards showDrawer={showDrawer} />
       <PaymentHistory />
       <Drawer
-        title="Subscription"
+        title={isBrowserMobile ? "" : "Subscription"}
+        height={500}
         width={600}
         onClose={onCloseDrawer}
-        placement="right"
+        placement={isBrowserMobile ? "bottom" : "right"}
         open={drawerOpen}
-        bodyStyle={{ paddingBottom: 80 }}
+        bodyStyle={{ paddingBottom: isBrowserMobile ? 0 : 80 }}
         extra={
           <Space>
             <SecondaryButton onClick={onCloseDrawer}>Cancel</SecondaryButton>
