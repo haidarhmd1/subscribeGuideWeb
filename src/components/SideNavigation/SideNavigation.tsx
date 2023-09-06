@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FiFolder, FiSettings } from "react-icons/fi";
+import { FiSettings } from "react-icons/fi";
 import { MdOutlineSubscriptions } from "react-icons/md";
 
 export const SideNavigation = () => {
@@ -9,16 +9,8 @@ export const SideNavigation = () => {
       <div className="side-nav-menu flex flex-col pt-4 pb-4">
         <h6 className="text-xs pb-3 text-neutral-500">Menu</h6>
         <Link href="/" className="pt-2 pb-2 text-sm font-semibold flex">
-          <FiFolder size={18} />
-          <span className="pl-2">Dashboard</span>
-        </Link>
-
-        <Link
-          href="/subscriptions"
-          className="pt-2 pb-2 text-sm font-semibold flex"
-        >
           <MdOutlineSubscriptions size={18} />
-          <span className="pl-2">Subscribtions</span>
+          <span className="pl-2">Subscriptions</span>
         </Link>
       </div>
 
