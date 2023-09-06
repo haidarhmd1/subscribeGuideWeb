@@ -27,6 +27,9 @@ import {
   Divider,
 } from "antd";
 import type { CheckboxChangeEvent } from "antd/es/checkbox";
+import { SubscriptionCard } from "components/SubscriptionCard";
+import { SubscriptionMainAnalitycs } from "components/SubscriptionMainAnalitycs";
+import { PaymentHistory } from "components/PaymentHistory";
 
 const { RangePicker } = DatePicker;
 
@@ -143,117 +146,36 @@ export default function Subscriptions() {
           </form>
         </div>
       </Modal>
-      <div className="bg-blue-100 w-full p-4 rounded-xl my-10">
-        <h1>Spent for January</h1>
-        <p className=" text-4xl">$31,00</p>
-        <Divider
-          dashed
-          style={{
-            borderWidth: 1,
-            backgroundColor: "black",
-          }}
-        />
-        <h1>Incoming Spendings Pending</h1>
-        <p className=" text-4xl">$16,00</p>
-      </div>
+      <SubscriptionMainAnalitycs
+        incomingSpendings="$16.00"
+        moneySpentTillNow="$31.00"
+      />
       <Row gutter={[24, 24]} className="my-4">
-        <Col className="gutter-row" xs={24} md={12}>
-          <div
-            className="p-4 bg-green-400 rounded-xl shadow-xl cursor-pointer"
-            onClick={showDrawer}
-          >
-            <div className="flex w-full justify-between">
-              <TbBrandSpotify size={36} />
-              <p className=" self-center">8€</p>
-            </div>
-            <div className="mt-8">
-              <div>
-                <p className="text-base font-semibold">Spotify</p>
-                <p className="font-light">
-                  Upcoming Payment: <span className="italic">21/04/2023</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </Col>
+        <SubscriptionCard
+          title="Spotify"
+          type="spotify"
+          showDrawer={showDrawer}
+          price="8"
+          upcomingPaymentDate="21/04/2023"
+        />
 
-        <Col className="gutter-row" xs={24} md={12}>
-          <div
-            className="p-4 bg-yellow-400 rounded-xl shadow-xl cursor-pointer"
-            onClick={showDrawer}
-          >
-            <div className="flex w-full justify-between">
-              <TbBus size={36} />
-              <p className=" self-center">64€</p>
-            </div>
-            <div className="mt-8">
-              <div>
-                <p className="text-base font-semibold">BVG</p>
-                <p className="font-light">
-                  Upcoming Payment: <span className="italic">21/04/2023</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </Col>
+        <SubscriptionCard
+          title="BVG"
+          type="commune"
+          showDrawer={showDrawer}
+          price="60"
+          upcomingPaymentDate="21/04/2023"
+        />
 
-        <Col className="gutter-row" xs={24} md={12}>
-          <div
-            className="p-4 bg-red-400 rounded-xl shadow-xl cursor-pointer"
-            onClick={showDrawer}
-          >
-            <div className="flex w-full justify-between">
-              <TbBrandNetflix size={36} />
-              <p className=" self-center">17,99€</p>
-            </div>
-            <div className="mt-8">
-              <div>
-                <p className="text-base font-semibold">Netflix</p>
-                <p className="font-light">
-                  Upcoming Payment: <span className="italic">21/04/2023</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </Col>
+        <SubscriptionCard
+          title="Netflix"
+          type="netflix"
+          showDrawer={showDrawer}
+          price={"17,99"}
+          upcomingPaymentDate="21/04/2023"
+        />
       </Row>
-      <div className="my-8">
-        <h2>Payment History</h2>
-        <div className="w-full">
-          <div className=" bg-slate-100 p-4 my-4 rounded-lg flex">
-            <div className="bg-green-300 rounded-full flex self-center p-2">
-              <TbBrandSpotify size={21} />
-            </div>
-            <div className="ml-4">
-              <p>Spotify</p>
-              <p className="text-xs font-light">Yesterday</p>
-            </div>
-            <div className=" ml-auto">- 8€</div>
-          </div>
-
-          <div className=" bg-slate-100 p-4 my-4 rounded-lg flex">
-            <div className="bg-red-300 rounded-full flex self-center p-2">
-              <TbBrandNetflix size={21} />
-            </div>
-            <div className="ml-4">
-              <p>Netflix</p>
-              <p className="text-xs font-light">Yesterday</p>
-            </div>
-            <div className=" ml-auto">- 17,99€</div>
-          </div>
-
-          <div className=" bg-slate-100 p-4 my-4 rounded-lg flex">
-            <div className="bg-yellow-300 rounded-full flex self-center p-2">
-              <TbBus size={21} />
-            </div>
-            <div className="ml-4">
-              <p>BVG</p>
-              <p className="text-xs font-light">Yesterday</p>
-            </div>
-            <div className=" ml-auto">- 60€</div>
-          </div>
-        </div>
-      </div>
+      <PaymentHistory />
       <Drawer
         title="Subscription"
         width={600}
