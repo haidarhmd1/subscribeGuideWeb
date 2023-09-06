@@ -1,6 +1,6 @@
 import { FiBell, FiCalendar, FiMail, FiUser } from "react-icons/fi";
 
-export function MainHeader() {
+export const MainHeader = () => {
   return (
     <div className="main-header h-12 w-full border-b-[1px] border-gray-200 p-2 flex justify-end">
       <div className="flex text-xs py-2 px-2 mr-2 text-black rounded-md border-0 font-light bg-gray-100">
@@ -36,4 +36,4 @@ export function MainHeader() {
       </div>
     </div>
   );
-}
+};

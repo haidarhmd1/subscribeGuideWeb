@@ -1,9 +1,9 @@
-interface IPrimaryButton {
+type ButtonProps = {
   children: React.ReactNode;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
-}
+};
 
-export const PrimaryButton = ({ children, onClick }: IPrimaryButton) => {
+export const PrimaryButton = ({ children, onClick }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
@@ -14,7 +14,7 @@ export const PrimaryButton = ({ children, onClick }: IPrimaryButton) => {
   );
 };
 
-export const SecondaryButton = ({ children, onClick }: IPrimaryButton) => {
+export const SecondaryButton = ({ children, onClick }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
