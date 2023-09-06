@@ -1,6 +1,7 @@
+import { Modal } from "antd";
+
 import { FiXCircle } from "react-icons/fi";
 
-import { Modal } from "antd";
 import { SubscriptionForm } from "components/SubscriptionForm";
 
 type SubscriptionModalProps = {
