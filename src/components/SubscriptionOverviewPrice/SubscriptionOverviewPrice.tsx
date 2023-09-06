@@ -1,6 +1,6 @@
 import { FcGoogle } from "react-icons/fc";
 
-export function SubscriptionOverviewPrice() {
+export const SubscriptionOverviewPrice = () => {
   return (
     <div className="flex justify-between">
       <span className="text-base font-bold self-center">1.</span>
@@ -14,4 +14,4 @@ export function SubscriptionOverviewPrice() {
       <div className="money font-semibold text-sm self-center">17,99$</div>
     </div>
   );
-}
+};

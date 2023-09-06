@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { FiDollarSign, FiFolder, FiLoader, FiSettings } from "react-icons/fi";
+import { FiFolder, FiSettings } from "react-icons/fi";
 import { MdOutlineSubscriptions } from "react-icons/md";
 
-export function SideNavigation() {
+export const SideNavigation = () => {
   return (
     <section className="side-nav p-2.5 w-2/6 h-screen border-r-[1px] border-gray-200">
       <div className="side-nav-logo">logo</div>
@@ -31,4 +31,4 @@ export function SideNavigation() {
       </div>
     </section>
   );
-}
+};
