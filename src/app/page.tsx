@@ -1,68 +1,68 @@
 "use client";
 
-import { Greeting } from "components/Greeting";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
-import { FcGoogle } from "react-icons/fc";
-import { SubscriptionOverviewPrice } from "components/SubscriptionOverviewPrice";
+import { useState } from "react";
+import { Space, Drawer } from "antd";
+import { PrimaryButton, SecondaryButton } from "components/Button";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+import { TbCirclePlus } from "react-icons/tb";
 
-export const data = {
-  labels: [
-    "Media & Entertainment",
-    "Commune",
-    "Leisure",
-    "Sports & Recreration",
-  ],
-  datasets: [
-    {
-      label: "# of Subscriptions",
-      data: [12, 19, 3, 5],
-      backgroundColor: [
-        "rgba(255, 99, 132)",
-        "rgba(54, 162, 235)",
-        "rgba(255, 206, 86)",
-        "rgba(75, 192, 192)",
-      ],
-      borderColor: [
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(54, 162, 235, 0.2)",
-        "rgba(255, 206, 86, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-      ],
-      borderWidth: 2,
-    },
-  ],
-};
+import { SubscriptionMainAnalitycs } from "components/SubscriptionMainAnalitycs";
+import { PaymentHistory } from "components/PaymentHistory";
+import { SubscriptionModal } from "components/SubscriptionModal";
+import { SubscriptionForm } from "components/SubscriptionForm";
+import { SubscriptionCards } from "components/SubscriptionCards/SubscriptionCards";
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const showDrawer = () => {
+    setDrawerOpen(true);
+  };
+
+  const onCloseDrawer = () => {
+    setDrawerOpen(false);
+  };
+
   return (
     <div>
-      <Greeting />
-      <div className="py-1">
-        <h1 className=" text-lg font-bold">Overview</h1>
-        <div className="flex justify-between">
-          <div className="my-2 p-4 w-96 h-auto bg-lime-200 rounded-md">
-            <h2 className="text-base font-semibold">
-              Subscription Category Overview
-            </h2>
-            <div className="my-4">
-              <Doughnut data={data} />
-            </div>
-          </div>
-          <div className="my-2 p-4 w-96 h-auto bg-blue-200 rounded-md">
-            <h2 className="text-base font-semibold">Top Subscription Prices</h2>
-            <div className="my-4">
-              <SubscriptionOverviewPrice />
-              <SubscriptionOverviewPrice />
-              <SubscriptionOverviewPrice />
-              <SubscriptionOverviewPrice />
-              <SubscriptionOverviewPrice />
-            </div>
-          </div>
+      <PrimaryButton onClick={openModal}>
+        <div className="flex">
+          <TbCirclePlus className="mr-2" size={16} />
+          Add Subscriptions
         </div>
-      </div>
+      </PrimaryButton>
+      <SubscriptionModal isModalOpen={isModalOpen} closeModal={closeModal} />
+      <SubscriptionMainAnalitycs
+        incomingSpendings="$16.00"
+        moneySpentTillNow="$31.00"
+      />
+      <SubscriptionCards showDrawer={showDrawer} />
+      <PaymentHistory />
+      <Drawer
+        title="Subscription"
+        width={600}
+        onClose={onCloseDrawer}
+        placement="right"
+        open={drawerOpen}
+        bodyStyle={{ paddingBottom: 80 }}
+        extra={
+          <Space>
+            <SecondaryButton onClick={onCloseDrawer}>Cancel</SecondaryButton>
+            <PrimaryButton onClick={onCloseDrawer}>Submit</PrimaryButton>
+          </Space>
+        }
+      >
+        <SubscriptionForm />
+      </Drawer>
     </div>
   );
 }
