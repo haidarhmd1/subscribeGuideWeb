@@ -1,4 +1,4 @@
-export function Greeting() {
+export const Greeting = () => {
   return (
     <div className="greeting pb-4 w-full flex">
       <div>
@@ -12,4 +12,4 @@ export function Greeting() {
       </div>
     </div>
   );
-}
+};
