@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.ant-tabs-nav::before {
-    border-bottom: none !important;
-}
-
 .ant-tabs-tab {
     border-radius: 24px;
     padding: 10px !important;
@@ -20,15 +16,4 @@
 
 .ant-tabs-nav-wrap {
     padding-bottom: 8px;
-}
-
-:where(.css-dev-only-do-not-override-nnuwmp).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn,
-:where(.css-dev-only-do-not-override-nnuwmp).ant-tabs .ant-tabs-tab:hover {
-    color: black !important;
-}
-
-:where(.css-dev-only-do-not-override-nnuwmp).ant-tabs .ant-tabs-ink-bar {
-    position: absolute;
-    background: transparent;
-    pointer-events: none;
 }
