@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { MainHeader } from "components/MainHeader";
 import { SideNavigation } from "components/SideNavigation";
+import StyledComponentsRegistry from "lib/AntdRegistry";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,13 +20,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={(inter.className, "overflow-x-hidden")}>
-        <div className="flex">
-          <SideNavigation />
-          <main className="w-full">
-            <MainHeader />
-            <div className="main-content p-2.5">{children}</div>
-          </main>
-        </div>
+        <StyledComponentsRegistry>
+          <div className="flex">
+            <SideNavigation />
+            <main className="w-full">
+              <MainHeader />
+              <div className="main-content p-2.5">{children}</div>
+            </main>
+          </div>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
