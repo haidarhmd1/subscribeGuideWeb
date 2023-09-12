@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Space, Drawer, Tabs } from "antd";
+import { Space, Drawer, Tabs, ConfigProvider } from "antd";
 import { PrimaryButton, SecondaryButton } from "components/Button";
 
 import { TbCirclePlus } from "react-icons/tb";
@@ -13,6 +13,7 @@ import { PaymentHistory } from "components/PaymentHistory";
 import { SubscriptionModal } from "components/SubscriptionModal";
 import { SubscriptionForm } from "components/SubscriptionForm";
 import { SubscriptionCards } from "components/SubscriptionCards/SubscriptionCards";
+import theme from "theme/themeConfig";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,7 +39,7 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <ConfigProvider theme={theme}>
       <PrimaryButton onClick={openModal}>
         <div className="flex">
           <TbCirclePlus className="mr-2" size={16} />
@@ -82,6 +83,6 @@ export default function Home() {
       >
         <SubscriptionForm />
       </Drawer>
-    </div>
+    </ConfigProvider>
   );
 }
