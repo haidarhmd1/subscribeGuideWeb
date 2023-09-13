@@ -15,10 +15,9 @@ export const SideNavigation = () => {
 
   const SideNav = !isBrowserMobile ? (
     <section className="side-nav w-34 h-screen border-r-[1px] border-gray-200 sticky top-0">
-      <div className="side-nav-logo h-12 flex justify-evenly items-center">
+      <div className="side-nav-logo h-10 flex justify-evenly items-center">
         <FcTreeStructure size={23} />
       </div>
-      <Divider className="mt-0" />
       <div className="side-nav-menu flex flex-col p-4">
         <h6 className="text-xs pb-3 text-neutral-500">Menu</h6>
         <Link

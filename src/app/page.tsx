@@ -51,21 +51,7 @@ export default function Home() {
         incomingSpendings="$16.00"
         moneySpentTillNow="$31.00"
       />
-      <div className="bg-slate-100 rounded-lg p-4">
-        <Tabs
-          defaultActiveKey="1"
-          centered
-          animated
-          items={new Array(3).fill(null).map((_, i) => {
-            const id = String(i + 1);
-            return {
-              label: `Tab dededede ${id}`,
-              key: id,
-              children: <SubscriptionCards showDrawer={showDrawer} />,
-            };
-          })}
-        />
-      </div>
+      <SubscriptionCards showDrawer={showDrawer} />
       <PaymentHistory />
       <Drawer
         title={isBrowserMobile ? "" : "Subscription"}
