@@ -1,4 +1,4 @@
-import { Divider } from "antd";
+import { Col, Divider, Row, Statistic } from "antd";
 
 type SubscriptionMainAnalyticssProps = {
   moneySpentTillNow: string;
@@ -10,18 +10,22 @@ export const SubscriptionMainAnalytics = ({
   incomingSpendings,
 }: SubscriptionMainAnalyticssProps) => {
   return (
-    <div className="bg-blue-100 w-full p-4 rounded-xl my-10">
-      <h1>Spent for January</h1>
-      <p className=" text-4xl">{moneySpentTillNow}</p>
-      <Divider
-        dashed
-        style={{
-          borderWidth: 1,
-          backgroundColor: "black",
-        }}
-      />
-      <h1>Incoming Spendings Pending</h1>
-      <p className=" text-4xl">{incomingSpendings}</p>
+    <div className="bg-white shadow-sm w-full p-4 rounded-xl my-3">
+      <Row gutter={16}>
+        <Col span={8}>
+          <Statistic title="Spendings for January" value={moneySpentTillNow} />
+        </Col>
+        <Col span={8}>
+          <Statistic
+            title="Spent till now"
+            value={incomingSpendings}
+            suffix={` / ${moneySpentTillNow}`}
+          />
+        </Col>
+        <Col span={8}>
+          <Statistic title="Next Due date" value={"02/04/2023"} />
+        </Col>
+      </Row>
     </div>
   );
 };
