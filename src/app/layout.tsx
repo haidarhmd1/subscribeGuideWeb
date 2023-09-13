@@ -25,7 +25,7 @@ export default function RootLayout({
             <SideNavigation />
             <main className="w-full">
               <MainHeader />
-              <div className="main-content p-2.5">{children}</div>
+              <div className="main-content p-2.5 bg-gray-100">{children}</div>
             </main>
           </div>
         </StyledComponentsRegistry>
