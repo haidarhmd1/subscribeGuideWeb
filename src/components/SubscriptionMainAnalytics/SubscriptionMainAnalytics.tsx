@@ -10,7 +10,7 @@ export const SubscriptionMainAnalytics = ({
   incomingSpendings,
 }: SubscriptionMainAnalyticssProps) => {
   return (
-    <div className="bg-white shadow-sm w-full p-4 rounded-xl my-3">
+    <div className="bg-white shadow-sm w-full p-4 rounded-xl mb-4 mt-1">
       <Row gutter={16}>
         <Col span={8}>
           <Statistic title="Spendings for January" value={moneySpentTillNow} />
