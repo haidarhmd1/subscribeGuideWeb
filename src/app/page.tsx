@@ -40,12 +40,12 @@ export default function Home() {
   };
 
   return (
-    <div
-      className={`main-content p-2.5  bg-gray-100 ${
-        isBrowserMobile ? "pb-14" : ""
-      }`}
-    >
-      <ConfigProvider theme={theme}>
+    <ConfigProvider theme={theme}>
+      <div
+        className={`main-content p-2.5  bg-gray-100 ${
+          isBrowserMobile ? "pb-14" : ""
+        }`}
+      >
         <PrimaryButton onClick={openModal}>
           <div className="flex">
             <TbCirclePlus className="mr-2" size={16} />
@@ -76,7 +76,7 @@ export default function Home() {
         >
           <SubscriptionForm />
         </Drawer>
-      </ConfigProvider>
-    </div>
+      </div>
+    </ConfigProvider>
   );
 }
