@@ -39,7 +39,7 @@ export const SubscriptionCard = ({
   return (
     <Col className="gutter-row" xs={24} md={12}>
       <div
-        className={`p-4 ${color()} rounded-xl shadow-xl cursor-pointer`}
+        className={`p-4 ${color()} rounded-xl shadow-md cursor-pointer`}
         onClick={showDrawer}
       >
         <div className="flex w-full justify-between">

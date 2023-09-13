@@ -7,30 +7,35 @@ export const SubscriptionCards = ({
   showDrawer: () => void;
 }) => {
   return (
-    <Row gutter={[24, 24]} className="my-4">
-      <SubscriptionCard
-        title="Spotify"
-        type="spotify"
-        showDrawer={showDrawer}
-        price="8"
-        upcomingPaymentDate="21/04/2023"
-      />
+    <div className="bg-white p-4 rounded-xl">
+      <div>
+        <h1>Subscriptions</h1>
+      </div>
+      <Row gutter={[16, 16]} className="my-4">
+        <SubscriptionCard
+          title="Spotify"
+          type="spotify"
+          showDrawer={showDrawer}
+          price="8"
+          upcomingPaymentDate="21/04/2023"
+        />
 
-      <SubscriptionCard
-        title="BVG"
-        type="commune"
-        showDrawer={showDrawer}
-        price="60"
-        upcomingPaymentDate="21/04/2023"
-      />
+        <SubscriptionCard
+          title="BVG"
+          type="commune"
+          showDrawer={showDrawer}
+          price="60"
+          upcomingPaymentDate="21/04/2023"
+        />
 
-      <SubscriptionCard
-        title="Netflix"
-        type="netflix"
-        showDrawer={showDrawer}
-        price={"17,99"}
-        upcomingPaymentDate="21/04/2023"
-      />
-    </Row>
+        <SubscriptionCard
+          title="Netflix"
+          type="netflix"
+          showDrawer={showDrawer}
+          price={"17,99"}
+          upcomingPaymentDate="21/04/2023"
+        />
+      </Row>
+    </div>
   );
 };
