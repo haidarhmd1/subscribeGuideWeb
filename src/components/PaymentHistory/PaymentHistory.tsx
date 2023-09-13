@@ -2,7 +2,7 @@ import { PaymentItem } from "./PaymentItem";
 
 export const PaymentHistory = () => {
   return (
-    <div className="my-8">
+    <div className="my-4 bg-white p-4 rounded-xl">
       <h2>Payment History</h2>
       <div className="w-full">
         <PaymentItem title="Spotify" type="spotify" deductedCost="8$" />
