@@ -31,7 +31,7 @@ const data = {
 };
 export const Chart = () => {
   return (
-    <div className="h-96 my-4 bg-white rounded-xl p-4 w-full">
+    <div className="h-96 mb-4 bg-white rounded-xl p-4 w-full">
       <Pie data={data} />
     </div>
   );
