@@ -1,3 +1,4 @@
+import { Avatar } from "antd";
 import { FiBell, FiCalendar, FiMail, FiUser } from "react-icons/fi";
 
 export const MainHeader = () => {
@@ -26,14 +27,9 @@ export const MainHeader = () => {
         />
       </div>
 
-      <div className="p-2 bg-gray-200 rounded-md">
-        <FiUser
-          size={16}
-          style={{
-            alignSelf: "center",
-          }}
-        />
-      </div>
+      <Avatar style={{ backgroundColor: "#fde3cf", color: "#f56a00" }}>
+        HH
+      </Avatar>
     </div>
   );
 };
