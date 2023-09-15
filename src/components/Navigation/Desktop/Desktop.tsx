@@ -15,18 +15,17 @@ export const Desktop = () => {
         <h6 className="text-xs pb-3 text-neutral-500">Menu</h6>
         {navLink.map(({ name, link, icon }) => {
           return (
-            <>
+            <div key={name}>
               <Divider />
               <Link
                 className={` ${
                   pathname === link ? "bg-blue-100" : "bg-white"
                 } p-4 rounded-lg text-xs font-light flex flex-col hover:bg-blue-50 transition-all`}
-                key={name}
                 href={link}
               >
                 {icon} <span className="mt-2 text-center">Subscriptions</span>
               </Link>
-            </>
+            </div>
           );
         })}
       </div>
