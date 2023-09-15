@@ -1,32 +1,18 @@
 "use client";
 
-import { Tabs, TabsProps } from "antd";
-import { UserDetails } from "./UserDetails";
-import { Privacy } from "./Privacy";
-import { Notifications } from "./Notifications";
-
-const items: TabsProps["items"] = [
-  {
-    key: "1",
-    label: "User Details",
-    children: <UserDetails />,
-  },
-  {
-    key: "2",
-    label: "Privacy",
-    children: <Privacy />,
-  },
-  {
-    key: "3",
-    label: "Notifications",
-    children: <Notifications />,
-  },
-];
+import { Tabs } from "antd";
+import { items } from "./SettingsTab.helper";
+import { useSearchParams } from "next/navigation";
 
 export const SettingsTab = () => {
   const onChange = (key: string) => {
     console.log(key);
   };
 
-  return <Tabs defaultActiveKey="1" items={items} onChange={onChange} />;
+  const searchParams = useSearchParams();
+  const activeKey = searchParams.get("activeKey") ?? "1";
+
+  return (
+    <Tabs defaultActiveKey={activeKey} items={items} onChange={onChange} />
+  );
 };

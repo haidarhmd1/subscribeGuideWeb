@@ -23,7 +23,7 @@ export const Desktop = () => {
                 } p-4 rounded-lg text-xs font-light flex flex-col hover:bg-blue-50 transition-all`}
                 href={link}
               >
-                {icon} <span className="mt-2 text-center">Subscriptions</span>
+                {icon} <span className="mt-2 text-center">{name}</span>
               </Link>
             </div>
           );
