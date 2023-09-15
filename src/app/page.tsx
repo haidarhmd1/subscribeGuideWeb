@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Space, Drawer, ConfigProvider } from "antd";
+import { Space, Drawer, ConfigProvider, Row, Col } from "antd";
 import { PrimaryButton, SecondaryButton } from "components/Button";
 
 import { useWindowSize } from "utils/useWindowSize";
@@ -12,6 +12,7 @@ import { SubscriptionForm } from "components/SubscriptionForm";
 import { SubscriptionCards } from "components/SubscriptionCards/SubscriptionCards";
 import theme from "theme/themeConfig";
 import { MOBILE_BREAKPOINT } from "utils/constants";
+import { Chart } from "components/Chart";
 
 export default function Home() {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -38,8 +39,15 @@ export default function Home() {
           incomingSpendings="$16.00"
           moneySpentTillNow="$31.00"
         />
+        <Row gutter={[16, 16]}>
+          <Col xs={24} md={12}>
+            <PaymentHistory />
+          </Col>
+          <Col xs={24} md={12}>
+            <Chart />
+          </Col>
+        </Row>
         <SubscriptionCards showDrawer={showDrawer} />
-        <PaymentHistory />
         <Drawer
           title={isBrowserMobile ? "" : "Subscription"}
           height={500}
