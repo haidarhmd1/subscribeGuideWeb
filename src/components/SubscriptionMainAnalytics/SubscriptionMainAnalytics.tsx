@@ -1,4 +1,4 @@
-import { Col, Divider, Row, Statistic } from "antd";
+import { Col, Row, Statistic } from "antd";
 
 type SubscriptionMainAnalyticssProps = {
   moneySpentTillNow: string;
