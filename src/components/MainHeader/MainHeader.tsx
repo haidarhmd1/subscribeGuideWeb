@@ -1,5 +1,8 @@
-import { Avatar } from "antd";
-import { FiBell, FiCalendar, FiMail, FiUser } from "react-icons/fi";
+"use client";
+
+import { Avatar, Dropdown, Space } from "antd";
+import { items } from "./MainHeader.helper";
+import { FiBell, FiCalendar, FiMail } from "react-icons/fi";
 
 export const MainHeader = () => {
   return (
@@ -27,9 +30,18 @@ export const MainHeader = () => {
         />
       </div>
 
-      <Avatar style={{ backgroundColor: "#fde3cf", color: "#f56a00" }}>
-        HH
-      </Avatar>
+      <Dropdown menu={{ items }} trigger={["click"]}>
+        <a onClick={(e) => e.preventDefault()}>
+          <Space>
+            <Avatar
+              className="cursor-pointer"
+              style={{ backgroundColor: "#fde3cf", color: "#f56a00" }}
+            >
+              HH
+            </Avatar>
+          </Space>
+        </a>
+      </Dropdown>
     </div>
   );
 };
