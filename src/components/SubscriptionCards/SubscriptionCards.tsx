@@ -8,7 +8,7 @@ export const SubscriptionCards = ({
   showDrawer: () => void;
 }) => {
   return (
-    <div className="bg-white p-4 rounded-xl">
+    <div className="bg-white p-4 mb-4 rounded-xl">
       <div>
         <h1>Subscriptions</h1>
       </div>

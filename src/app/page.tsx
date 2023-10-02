@@ -39,15 +39,8 @@ export default function Home() {
           incomingSpendings="$16.00"
           moneySpentTillNow="$31.00"
         />
-        <Row gutter={[16, 16]}>
-          <Col xs={24} md={12}>
-            <PaymentHistory />
-          </Col>
-          <Col xs={24} md={12}>
-            <Chart />
-          </Col>
-        </Row>
         <SubscriptionCards showDrawer={showDrawer} />
+        <PaymentHistory />
         <Drawer
           title={isBrowserMobile ? "" : "Subscription"}
           height={500}
