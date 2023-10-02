@@ -17,6 +17,8 @@ export const SubscriptionCard = ({
   upcomingPaymentDate,
   showDrawer,
 }: SubscriptionCardProps) => {
+  console.log(brandColor(type));
+
   return (
     <Col className="gutter-row" xs={24} md={12}>
       <div
